@@ -1,0 +1,33 @@
+[0.011s] Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation -- -j16 -l16
+[0.057s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.156s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.205s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.206s] -- Added test 'lint_cmake' to check CMake code style
+[0.207s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.208s] -- Added test 'xmllint' to check XML markup files
+[0.209s] -- Configuring done
+[0.212s] -- Generating done
+[0.214s] -- Build files have been written to: /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation
+[0.227s] Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation -- -j16 -l16
+[0.228s] Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation
+[0.232s] -- Install configuration: ""
+[0.233s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/launch
+[0.233s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/launch/sim.launch.py
+[0.233s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/worlds
+[0.233s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/config
+[0.233s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/ament_index/resource_index/package_run_dependencies/rover_simulation
+[0.233s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/ament_index/resource_index/parent_prefix_path/rover_simulation
+[0.234s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/environment/ament_prefix_path.sh
+[0.234s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/environment/ament_prefix_path.dsv
+[0.234s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/environment/path.sh
+[0.234s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/environment/path.dsv
+[0.234s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/local_setup.bash
+[0.234s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/local_setup.sh
+[0.234s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/local_setup.zsh
+[0.234s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/local_setup.dsv
+[0.234s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/package.dsv
+[0.234s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/ament_index/resource_index/packages/rover_simulation
+[0.235s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/cmake/rover_simulationConfig.cmake
+[0.235s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/cmake/rover_simulationConfig-version.cmake
+[0.235s] -- Up-to-date: /home/ugv_dev/ugv_autonomy_stack/install/rover_simulation/share/rover_simulation/package.xml
+[0.235s] Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation

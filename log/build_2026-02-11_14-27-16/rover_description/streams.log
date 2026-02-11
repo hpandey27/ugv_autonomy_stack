@@ -1,0 +1,42 @@
+[0.011s] Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ugv_dev/ugv_autonomy_stack/src/rover_description -DCMAKE_INSTALL_PREFIX=/home/ugv_dev/ugv_autonomy_stack/install/rover_description
+[0.238s] -- The C compiler identification is GNU 11.4.0
+[0.834s] -- The CXX compiler identification is GNU 11.4.0
+[1.232s] -- Detecting C compiler ABI info
+[1.356s] -- Detecting C compiler ABI info - done
+[1.361s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.364s] -- Detecting C compile features
+[1.364s] -- Detecting C compile features - done
+[1.367s] -- Detecting CXX compiler ABI info
+[1.482s] -- Detecting CXX compiler ABI info - done
+[1.486s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.486s] -- Detecting CXX compile features
+[1.486s] -- Detecting CXX compile features - done
+[1.498s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.595s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.667s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.724s] -- Added test 'lint_cmake' to check CMake code style
+[1.725s] -- Added test 'xmllint' to check XML markup files
+[1.726s] -- Configuring done
+[1.729s] -- Generating done
+[1.730s] -- Build files have been written to: /home/ugv_dev/ugv_autonomy_stack/build/rover_description
+[1.733s] Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ugv_dev/ugv_autonomy_stack/src/rover_description -DCMAKE_INSTALL_PREFIX=/home/ugv_dev/ugv_autonomy_stack/install/rover_description
+[1.734s] Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ugv_dev/ugv_autonomy_stack/build/rover_description -- -j16 -l16
+[1.757s] Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ugv_dev/ugv_autonomy_stack/build/rover_description -- -j16 -l16
+[1.764s] Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ugv_dev/ugv_autonomy_stack/build/rover_description
+[1.768s] -- Install configuration: ""
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/ament_index/resource_index/package_run_dependencies/rover_description
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/ament_index/resource_index/parent_prefix_path/rover_description
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/environment/ament_prefix_path.sh
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/environment/ament_prefix_path.dsv
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/environment/path.sh
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/environment/path.dsv
+[1.769s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/local_setup.bash
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/local_setup.sh
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/local_setup.zsh
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/local_setup.dsv
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/package.dsv
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/ament_index/resource_index/packages/rover_description
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/cmake/rover_descriptionConfig.cmake
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/cmake/rover_descriptionConfig-version.cmake
+[1.770s] -- Installing: /home/ugv_dev/ugv_autonomy_stack/install/rover_description/share/rover_description/package.xml
+[1.773s] Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ugv_dev/ugv_autonomy_stack/build/rover_description

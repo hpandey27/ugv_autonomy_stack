@@ -1,0 +1,6 @@
+Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ugv_dev/ugv_autonomy_stack/src/rover_simulation -DCMAKE_INSTALL_PREFIX=/home/ugv_dev/ugv_autonomy_stack/install/rover_simulation
+Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ugv_dev/ugv_autonomy_stack/src/rover_simulation -DCMAKE_INSTALL_PREFIX=/home/ugv_dev/ugv_autonomy_stack/install/rover_simulation
+Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation -- -j16 -l16
+Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation -- -j16 -l16
+Invoking command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation
+Invoked command in '/home/ugv_dev/ugv_autonomy_stack/build/rover_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ugv_dev/ugv_autonomy_stack/build/rover_simulation
