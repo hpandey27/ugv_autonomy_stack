@@ -1,1 +1,1 @@
-prepend-non-duplicate;AMENT_PREFIX_PATH;
+/home/ugv_dev/ugv_autonomy_stack/ugv_autonomy_stack/build/rover_simulation/ament_cmake_environment_hooks/ament_prefix_path.dsv

@@ -25,7 +25,7 @@ def generate_launch_description():
     )
 
     spawn = TimerAction(
-        period=5.0,
+        period=10.0,
         actions=[
             Node(
                 package="gazebo_ros",
@@ -35,32 +35,8 @@ def generate_launch_description():
                     "-topic", "robot_description",
                     "-x", "0",
                     "-y", "0",
-                    "-z", "0.5"
+                    "-z", "1.0"  # Higher spawn for physics to settle properly
                 ],
-                output="screen",
-            )
-        ],
-    )
-
-    joint_state_spawner = TimerAction(
-        period=8.0,
-        actions=[
-            Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["joint_state_broadcaster"],
-                output="screen",
-            )
-        ],
-    )
-
-    diff_drive_spawner = TimerAction(
-        period=10.0,
-        actions=[
-            Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["diff_drive_controller"],
                 output="screen",
             )
         ],
@@ -70,6 +46,4 @@ def generate_launch_description():
         gazebo,
         rsp,
         spawn,
-        joint_state_spawner,
-        diff_drive_spawner,
     ])

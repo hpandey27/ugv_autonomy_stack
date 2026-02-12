@@ -1,2 +1,1 @@
-source;share/rover_description/environment/ament_prefix_path.sh
-source;share/rover_description/environment/path.sh
+/home/ugv_dev/ugv_autonomy_stack/ugv_autonomy_stack/build/rover_description/ament_cmake_environment_hooks/local_setup.dsv
