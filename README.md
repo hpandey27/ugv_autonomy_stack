@@ -118,4 +118,4 @@ TODO: License declaration
 
 ## Maintainer
 
-ugv_dev <pandey.himanshu27@google.com>
+UGV Development Team <maintainer@ugv-autonomy.local>

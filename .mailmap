@@ -1,0 +1,8 @@
+# Git mailmap for IP protection
+# Maps personal identities to generic team identity
+
+# Map all personal commits to generic team identity
+pandey.himanshu27@google.com <maintainer@ugv-autonomy.local> UGV Development Team <maintainer@ugv-autonomy.local>
+86146420+hpandey27@users.noreply.github.com <maintainer@ugv-autonomy.local> UGV Development Team <maintainer@ugv-autonomy.local>
+hpandey27 <maintainer@ugv-autonomy.local> UGV Development Team <maintainer@ugv-autonomy.local>
+ugv_dev <maintainer@ugv-autonomy.local> UGV Development Team <maintainer@ugv-autonomy.local>
