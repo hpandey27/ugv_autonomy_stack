@@ -13,8 +13,16 @@ def generate_launch_description():
 
     robot_desc = xacro.process_file(xacro_file).toxml()
 
+    gazebo_models_path = os.path.join(desc_pkg, "models")
+    if 'GAZEBO_MODEL_PATH' in os.environ:
+        os.environ['GAZEBO_MODEL_PATH'] += ':' + gazebo_models_path
+    else:
+        os.environ['GAZEBO_MODEL_PATH'] = gazebo_models_path
+
+    world_file = '/usr/share/gazebo-11/worlds/shapes.world'
+
     gazebo = ExecuteProcess(
-        cmd=["gazebo", "--verbose", "-s", "libgazebo_ros_factory.so"],
+        cmd=["gazebo", "--verbose", world_file, "-s", "libgazebo_ros_factory.so"],
         output="screen",
     )
 
