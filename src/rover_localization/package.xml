@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>sensor_fusion</name>
+  <name>rover_localization</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>EKF-based state estimation and localization for the UGV platform</description>
   <maintainer email="pandey.himanshu27@google.com">ugv_dev</maintainer>
   <license>TODO: License declaration</license>
 

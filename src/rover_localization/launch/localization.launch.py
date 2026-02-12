@@ -6,8 +6,8 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     
-    sensor_fusion_dir = get_package_share_directory('sensor_fusion')
-    ekf_config = os.path.join(sensor_fusion_dir, 'config', 'ekf.yaml')
+    localization_dir = get_package_share_directory('rover_localization')
+    ekf_config = os.path.join(localization_dir, 'config', 'ekf.yaml')
     
     return LaunchDescription([
         Node(
