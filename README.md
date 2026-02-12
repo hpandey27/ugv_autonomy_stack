@@ -114,7 +114,13 @@ This stack follows defense-grade development principles:
 
 ## License
 
-TODO: License declaration
+**Proprietary and Confidential**
+
+Copyright © 2026 UGV Autonomy Project. All Rights Reserved.
+
+This software is proprietary and confidential. See [LICENSE](LICENSE) and [COPYRIGHT.md](COPYRIGHT.md) for full details.
+
+Unauthorized use, copying, modification, or distribution is strictly prohibited.
 
 ## Maintainer
 

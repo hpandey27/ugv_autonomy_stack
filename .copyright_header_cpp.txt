@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2026 UGV Autonomy Project. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL
+ *
+ * This file is part of the UGV Autonomy Stack.
+ * Unauthorized copying, modification, distribution, or use is strictly prohibited.
+ */
