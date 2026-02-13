@@ -109,6 +109,8 @@
         <output_type>sensor_msgs/LaserScan</output_type>
         <frame_name>lidar_link</frame_name>
       </plugin>
+      <always_on>true</always_on>
+      <update_rate>10.0</update_rate>
     </sensor>
   </gazebo>
 
@@ -120,10 +122,56 @@
   </joint>
   <gazebo reference="imu_link">
     <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <!-- <imu>
+        <angular_velocity>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu> -->
       <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
         <ros>
           <remapping>~/out:=imu</remapping>
         </ros>
+        <initial_orientation_as_reference>false</initial_orientation_as_reference>
+        <frame_name>imu_link</frame_name>
       </plugin>
     </sensor>
   </gazebo>
@@ -133,14 +181,14 @@
     <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
       <ros>
         <namespace>/</namespace>
-        <remapping>cmd_vel:=diff_drive_controller/cmd_vel_unstamped</remapping>
-        <remapping>odom:=diff_drive_controller/odom</remapping>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+        <remapping>odom:=odom</remapping>
       </ros>
 
       <num_wheel_pairs>2</num_wheel_pairs>
       <left_joint>front_left_wheel_joint</left_joint>
-      <left_joint>rear_left_wheel_joint</left_joint>
       <right_joint>front_right_wheel_joint</right_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
       <right_joint>rear_right_wheel_joint</right_joint>
 
       <wheel_separation>0.7</wheel_separation>
@@ -150,8 +198,8 @@
       <max_wheel_acceleration>5.0</max_wheel_acceleration>
 
       <publish_odom>true</publish_odom>
-      <publish_odom_tf>false</publish_odom_tf>
-      <publish_wheel_tf>true</publish_wheel_tf>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>false</publish_wheel_tf>
 
       <odometry_frame>odom</odometry_frame>
       <robot_base_frame>base_footprint</robot_base_frame>

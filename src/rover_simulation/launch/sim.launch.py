@@ -20,16 +20,19 @@ def generate_launch_description():
         os.environ['GAZEBO_MODEL_PATH'] = gazebo_models_path
 
     world_file = '/usr/share/gazebo-11/worlds/shapes.world'
-
+    
     gazebo = ExecuteProcess(
-        cmd=["gazebo", "--verbose", world_file, "-s", "libgazebo_ros_factory.so"],
+        cmd=["gzserver", "--verbose", "-s", "libgazebo_ros_factory.so", world_file],
         output="screen",
     )
+
+    # If you want to see the GUI, launch gzclient too.
+    # We use headless:=true by default in our tests.
 
     rsp = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        parameters=[{"robot_description": robot_desc}],
+        parameters=[{"robot_description": robot_desc, "use_sim_time": True}],
     )
 
     spawn = TimerAction(
@@ -41,9 +44,9 @@ def generate_launch_description():
                 arguments=[
                     "-entity", "ugv",
                     "-topic", "robot_description",
-                    "-x", "0",
-                    "-y", "0",
-                    "-z", "1.0"  # Higher spawn for physics to settle properly
+                    "-x", "-2.0",
+                    "-y", "-2.0",
+                    "-z", "0.3"  # Lower spawn height to land on ground, not obstacles
                 ],
                 output="screen",
             )

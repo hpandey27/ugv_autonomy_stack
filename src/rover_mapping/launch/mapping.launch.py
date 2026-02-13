@@ -30,7 +30,7 @@ def generate_launch_description():
         name='slam_toolbox',
         output='screen',
         remappings=[
-            ('/odom', '/diff_drive_controller/odom'),
+            ('/odom', '/odom'),
         ]
     )
 
