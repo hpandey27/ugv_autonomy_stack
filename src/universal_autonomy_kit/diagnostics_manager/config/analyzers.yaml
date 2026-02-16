@@ -1,0 +1,21 @@
+analyzers:
+  ros__parameters:
+    analyzers:
+      sensors:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Sensors
+        contains: ['lidar', 'camera', 'gps', 'imu']
+        timeout: 5.0
+        num_items: 3
+      
+      power:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Power
+        contains: ['battery', 'bms']
+        timeout: 10.0
+      
+      system:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: System
+        contains: ['cpu', 'hdd', 'network']
+        timeout: 10.0

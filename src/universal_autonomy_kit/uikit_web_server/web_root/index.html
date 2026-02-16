@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Universal Autonomy Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.10.0/nipplejs.min.js"></script>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #222; color: #eee; margin: 0; padding: 20px; }
+  .container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: #333; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+  h2 { margin-top: 0; border-bottom: 1px solid #555; padding-bottom: 10px; }
+  #status { font-weight: bold; color: yellow; }
+  #joystick { height: 300px; position: relative; background: #444; border-radius: 8px; }
+  .diag-item { padding: 5px; border-bottom: 1px solid #444; display: flex; justify-content: space-between; }
+  .diag-ok { color: lightgreen; }
+  .diag-warn { color: orange; }
+  .diag-err { color: red; }
+</style>
+</head>
+<body>
+  <h1>Universal Autonomy Kit <span style="font-size:0.5em; color:#888">v0.1.0</span></h1>
+  <p>ROS Connection: <span id="status">Disconnected</span></p>
+
+  <div class="container">
+    <!-- Teleop Card -->
+    <div class="card">
+      <h2>Teleoperation</h2>
+      <div id="joystick"></div>
+      <p style="text-align:center; color:#888; margin-top:10px">Virtual Joystick Active</p>
+    </div>
+
+    <!-- Diagnostics Card -->
+    <div class="card">
+      <h2>System Diagnostics</h2>
+      <div id="diagnostics-list">
+        <div style="text-align:center; color:#888; padding: 20px;">Waiting for data...</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // 1. Connect to ROS
+  var ros = new ROSLIB.Ros({ url : 'ws://' + window.location.hostname + ':9090' });
+
+  ros.on('connection', function() {
+    document.getElementById("status").innerHTML = "Connected";
+    document.getElementById("status").style.color = "lightgreen";
+  });
+
+  ros.on('error', function(error) {
+    document.getElementById("status").innerHTML = "Error";
+    document.getElementById("status").style.color = "red";
+  });
+
+  ros.on('close', function() {
+    document.getElementById("status").innerHTML = "Closed";
+    document.getElementById("status").style.color = "yellow";
+  });
+
+  // 2. Joystick (Cmd Vel)
+  var cmdVel = new ROSLIB.Topic({
+    ros : ros,
+    name : '/cmd_vel',
+    messageType : 'geometry_msgs/Twist'
+  });
+
+  var manager = nipplejs.create({
+    zone: document.getElementById('joystick'),
+    mode: 'static',
+    position: {left: '50%', top: '50%'},
+    color: 'cyan'
+  });
+
+  manager.on('move', function (evt, data) {
+    var linear = data.force * Math.cos(data.angle.radian) * 2.0; // Max 2.0 m/s
+    var angular = data.force * Math.sin(data.angle.radian) * -2.0; 
+    
+    // Simple clamp for example
+    if(linear > 2.0) linear = 2.0;
+
+    var twist = new ROSLIB.Message({
+      linear : { x : linear, y : 0, z : 0 },
+      angular : { x : 0, y : 0, z : angular }
+    });
+    cmdVel.publish(twist);
+  });
+  
+  manager.on('end', function () {
+    cmdVel.publish(new ROSLIB.Message({
+      linear : { x : 0, y : 0, z : 0 },
+      angular : { x : 0, y : 0, z : 0 }
+    }));
+  });
+
+  // 3. Diagnostics
+  var listener = new ROSLIB.Topic({
+    ros : ros,
+    name : '/diagnostics_agg',
+    messageType : 'diagnostic_msgs/DiagnosticArray'
+  });
+
+  listener.subscribe(function(message) {
+    var html = "";
+    message.status.forEach(function(status) {
+      if(status.name.startsWith('/')) status.name = status.name.substring(1); // Clean name
+      
+      var levelClass = "diag-ok";
+      var levelText = "OK";
+      if(status.level == 1) { levelClass = "diag-warn"; levelText = "WARN"; }
+      if(status.level == 2) { levelClass = "diag-err"; levelText = "ERROR"; }
+      if(status.level == 3) { levelClass = "diag-err"; levelText = "STALE"; }
+
+      html += `<div class="diag-item">
+                <span>${status.name}</span>
+                <span class="${levelClass}">[${levelText}] ${status.message}</span>
+               </div>`;
+    });
+    document.getElementById("diagnostics-list").innerHTML = html;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="universal_rover">
+
+  <!-- Parameters passed from generator -->
+  <xacro:arg name="robot_name" default="custom_rover"/>
+  <xacro:arg name="chassis_length" default="1.0"/>
+  <xacro:arg name="chassis_width" default="0.6"/>
+  <xacro:arg name="chassis_height" default="0.3"/>
+  <xacro:arg name="wheel_radius" default="0.165"/>
+  <xacro:arg name="wheel_width" default="0.1"/>
+  <xacro:arg name="wheel_separation" default="0.55"/>
+  <xacro:arg name="wheel_base" default="0.5"/>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="$(arg chassis_length) $(arg chassis_width) $(arg chassis_height)"/>
+      </geometry>
+      <material name="chassis_color">
+        <color rgba="0.3 0.3 0.3 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="$(arg chassis_length) $(arg chassis_width) $(arg chassis_height)"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="20.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <!-- Base Footprint -->
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 $(arg wheel_radius)" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Wheel Macro -->
+  <xacro:macro name="wheel" params="prefix x y">
+    <link name="${prefix}_wheel">
+      <visual>
+        <geometry>
+          <cylinder length="$(arg wheel_width)" radius="$(arg wheel_radius)"/>
+        </geometry>
+        <origin rpy="${pi/2} 0 0"/>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="$(arg wheel_width)" radius="$(arg wheel_radius)"/>
+        </geometry>
+        <origin rpy="${pi/2} 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="2.0"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="${prefix}_wheel"/>
+      <origin xyz="${x} ${y} -${(arg chassis_height)/2 - 0.05}" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Instantiate Wheels -->
+  <xacro:wheel prefix="front_left" x="$(arg wheel_base)/2" y="$(arg wheel_separation)/2"/>
+  <xacro:wheel prefix="front_right" x="$(arg wheel_base)/2" y="-$(arg wheel_separation)/2"/>
+  <xacro:wheel prefix="rear_left" x="-$(arg wheel_base)/2" y="$(arg wheel_separation)/2"/>
+  <xacro:wheel prefix="rear_right" x="-$(arg wheel_base)/2" y="-$(arg wheel_separation)/2"/>
+
+</robot>

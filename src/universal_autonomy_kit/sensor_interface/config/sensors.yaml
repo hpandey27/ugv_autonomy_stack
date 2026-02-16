@@ -1,0 +1,40 @@
+# Universal Sensor Configuration
+# Define your hardware stack here. The sensor_manager will spawn the correct drivers and TFs.
+
+sensors:
+  # User Specific Hardware
+  - name: "front_lidar"
+    type: "lidar_3d"
+    model: "livox_mid360"
+    enabled: true
+    mount:
+      xyz: [0.4, 0.0, 0.2]
+      rpy: [0.0, 0.0, 0.0]
+    topic_remap: "/sensing/lidar/front/points"
+
+  - name: "top_lidar"
+    type: "lidar_3d"
+    model: "unitree_l2"
+    enabled: false
+    mount:
+      xyz: [0.0, 0.0, 0.5]
+      rpy: [0.0, 0.0, 0.0]
+    topic_remap: "/sensing/lidar/top/points"
+
+  - name: "front_camera"
+    type: "camera"
+    model: "orbbec_gemini2"
+    enabled: true
+    mount:
+      xyz: [0.45, 0.0, 0.15]
+      rpy: [0.0, 0.0, 0.0]
+    topic_remap: "/sensing/camera/front"
+
+  # Standard Hardware Examples (Disabled by default)
+  - name: "rear_gps"
+    type: "gps"
+    model: "microstrain_gq7"
+    enabled: false
+    mount:
+      xyz: [-0.4, 0.0, 0.3]
+      rpy: [0.0, 0.0, 0.0]
